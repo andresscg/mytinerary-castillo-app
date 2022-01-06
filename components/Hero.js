@@ -1,41 +1,71 @@
 import React from 'react'
-import Video from 'react-native-video'
-import {StyleSheet, Text, View, Dimensions} from 'react-native'
-import {Button} from 'react-native-elements'
+import {StyleSheet, Text, View, ImageBackground, Image, Pressable, Dimensions} from 'react-native'
 
 const Hero = (props) => {
   return (
     <View styles={styles.heroContainer}>
-      <Video source={require("../assets/bg-video.mp4")} style={styles.backgroundVideo} muted={true} repeat={true} resizeMode={"cover"} rate={1.0} ignoreSilentSwitch={'obey'} />
-      <View style={styles.heroText}>
-        <Text style={styles.heroTitle}>MyTinerary</Text>
-        <Text style={styles.heroSubtitle}>Find your perfect trip,</Text>
-        <Text style={styles.heroSubtitle}>designed by insiders who know and love their cities!</Text>
-      </View>
-      <Button title="Find your next experience" style={styles.heroBtn} />
+      <ImageBackground source={require('../assets/carBg.jpg')} style={styles.heroBg} resizeMode="cover">
+        <Image source={require('../assets/logo_small_icon_only_inverted.png')} style={styles.logo} />
+        <View style={styles.heroText}>
+          <Text style={styles.heroTitle}>MyTinerary</Text>
+          <Text style={styles.heroSubtitle}>Find your perfect trip,</Text>
+          <Text style={styles.heroSubtitle}>designed by insiders who know and love their cities!</Text>
+        </View>
+        <Pressable style={styles.heroBtn}>
+          <Text style={styles.btnText}>Find your next experience</Text>
+        </Pressable>
+      </ImageBackground>
     </View>
   )
 }
 
-const {width, height} = Dimensions.get('window');
+const {width} = Dimensions.get('screen');
 const styles = StyleSheet.create({
-  backgroundVideo:{
+  heroBg:{
     width: width, 
-    height: height,
-    position: 'fixed',
-    zIndex: -1,
-    elevation: -1
+    height: 600,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  logo:{
+    width: 150,
+    height: 150
   },
   heroContainer:{
-    height: height,
+    height: 600,
     width: width,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    objectFit: 'contain'
+    resizeMode: 'contain'
+  },
+  heroText:{
+    paddingBottom: 50
+  },
+  heroTitle:{
+    color:'#ffffff',
+    fontFamily:"Poppins_700Bold",
+    alignSelf: 'center',
+    fontSize: 50
+  },
+  heroSubtitle:{
+    color:'#ffffff',
+    fontFamily: "Lato_400Regular",
+    alignSelf: 'center',
+    fontSize: 30
+  },
+  heroBtn:{
+    backgroundColor:'#ffffff',
+    paddingHorizontal: 15,
+    paddingVertical: 12,
+    borderRadius: 5
+  },
+  btnText:{
+    fontFamily: 'Montserrat_500Medium',
+    textTransform: 'uppercase',
+    fontSize: 16
   }
-
 })
 
 export default Hero
