@@ -2,7 +2,10 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import Cities from "../screens/Cities";
 import City from "../screens/City";
-import Sign from "../screens/Sign";
+import SignIn from "../screens/SignIn";
+import SignUp from "../screens/SignUp";
+import UserInfo from "../screens/UserInfo";
+import LogOut from "../screens/LogOut";
 
 const Stack = createStackNavigator();
 
@@ -19,7 +22,6 @@ export const HomeStack = () => {
 export const CitiesStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Cities"
       screenOptions={{ headerShown: false }}
     >
       <Stack.Screen name="cities" component={Cities} />
@@ -27,13 +29,23 @@ export const CitiesStack = () => {
     </Stack.Navigator>
   );
 };
-export const SignStack = () => {
+export const SignInStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Sign"
       screenOptions={{ headerShown: false }}
     >
-      <Stack.Screen name="sign" component={Sign} />
+      <Stack.Screen name="signin" component={SignIn} />
+      <Stack.Screen name="userinfo" component={UserInfo} />
+    </Stack.Navigator>
+  );
+};
+export const SignUpStack = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name="signup" component={SignUp} />
+      <Stack.Screen name="logout" component={LogOut} />
     </Stack.Navigator>
   );
 };

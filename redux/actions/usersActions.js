@@ -1,4 +1,5 @@
 import axios from "axios";
+import { AsyncStorage } from "@react-native-async-storage/async-storage";
 
 const usersActions = {
   signUp: (newUser) => {
@@ -9,6 +10,7 @@ const usersActions = {
       );
       try {
         if (response.data.success) {
+          // await AsyncStorage.setItem("token", response.data.response.token);
           dispatch({ type: "SIGN_IN", payload: response.data.response });
         }
         return response;
@@ -25,6 +27,7 @@ const usersActions = {
           signUser
         );
         if (response.data.success) {
+          // await AsyncStorage.setItem("token", response.data.response.token);
           dispatch({ type: "SIGN_IN", payload: response.data.response });
         }
         return response;

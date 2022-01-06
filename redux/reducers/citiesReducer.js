@@ -13,7 +13,9 @@ const citiesReducer = (state = {allCities:[], filteredCities:[], newCity:{}}, ac
         filteredCities: filtered
       }
     case 'GET_ONE_CITY':
-      let oneCity = state.allCities.find(city => city._id === action.payload);  
+      console.log('entra al reducer')
+      let oneCity = state.allCities.find(city => city._id === action.payload);
+      console.log(oneCity.name)
       return{
         ...state,
         newCity: oneCity

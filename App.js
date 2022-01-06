@@ -9,9 +9,11 @@ import {Provider} from 'react-redux'
 import rootReducer from './redux/reducers/rootReducer'
 import thunk from 'redux-thunk'
 import { applyMiddleware, createStore } from 'redux'
-
+import {LogBox} from 'react-native'
+// LogBox.ignoreAllLogs(true)
 
 const App = () => {
+  const globalStore = createStore(rootReducer, applyMiddleware(thunk))
   let [fontsLoaded] = useFonts({
     Poppins_700Bold,
     Lato_400Regular,
@@ -23,7 +25,9 @@ const App = () => {
   }else{
     return (
       <NavigationContainer>
-        <Navigator />
+        <Provider store={globalStore}>
+          <Navigator />
+        </Provider>
       </NavigationContainer>
     )
   }

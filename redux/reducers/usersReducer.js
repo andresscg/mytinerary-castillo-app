@@ -4,7 +4,6 @@ const usersReducer = (
 ) => {
   switch (action.type) {
     case "SIGN_IN":
-      localStorage.setItem("token", action.payload.token);
       return {
         ...state,
         token: action.payload.token,
@@ -13,7 +12,7 @@ const usersReducer = (
         _id: action.payload._id,
       };
     case "SIGN_OUT":
-      localStorage.removeItem("token");
+      // localStorage.removeItem("token");
       return {
         token: null,
         firstName: null,
