@@ -11,7 +11,7 @@ const Hero = (props) => {
           <Text style={styles.heroSubtitle}>Find your perfect trip,</Text>
           <Text style={styles.heroSubtitle}>designed by insiders who know and love their cities!</Text>
         </View>
-        <Pressable style={styles.heroBtn}>
+        <Pressable style={styles.heroBtn} onPress={() => props.navigation.navigate('Cities')}>
           <Text style={styles.btnText}>Find your next experience</Text>
         </Pressable>
       </ImageBackground>

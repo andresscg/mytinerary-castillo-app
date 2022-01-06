@@ -3,10 +3,10 @@ import { ScrollView, View, Text } from 'react-native'
 import Hero from '../components/Hero'
 import CarouselSection from '../components/CarouselSection'
 
-const Home = () => {
+const Home = (props) => {
   return (
     <ScrollView>
-      <Hero />
+      <Hero navigation={props.navigation} />
       <CarouselSection />
     </ScrollView>
   )
